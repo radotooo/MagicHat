@@ -6,11 +6,12 @@ import gsap from 'gsap';
 export default class MagicHat extends Container {
   constructor() {
     super();
+    this.name = 'magic-hat';
 
     this._body = new Sprite.from('hat');
-    this._item = new Text();
+    this._item = new Text('', { fontSize: 200 });
     this._itemMask = new Sprite.from('mask');
-    this._emojis = ['👻', '💩', '😷', '😇', '💩', '😂'];
+    this._emojis = ['👻', '💩', '😷', '😇', '🤖', '😂'];
 
     this._setBody();
     this._setMask();
@@ -56,7 +57,6 @@ export default class MagicHat extends Container {
    */
   _setBody() {
     this._body.anchor.set(1);
-    this._body.name = 'magic-hat';
     this._body.interactive = true;
     this._body.buttonMode = true;
     this._body.y = 450;
@@ -76,13 +76,9 @@ export default class MagicHat extends Container {
    * @private
    */
   _setItem() {
-    this._item.style = {
-      fontSize: 170,
-    };
     this._item.anchor.set(0.5);
     this._item.x = 35;
     this._item.y = 300;
-
     this._item.mask = this._itemMask;
   }
 }
